@@ -1,0 +1,45 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage<ContentModels.BranchType>
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+@{
+	Layout = null;
+}
+
+@* the list of the branch names and the IDs *@
+<h1>List of Branches</h1>
+<ul><il>001 Emma</ul></il>
+<ul><il>002 Liam</ul></il>
+<ul><il>003 Olivia</ul></il>
+<ul><il>004 Noah</ul></il>
+<ul><il>005 Ava</ul></il>
+<ul><il>006 Isabella</ul></il>
+<ul><il>007 Sophia</ul></il>
+<ul><il>008 Mia</ul></il>
+<ul><il>009 Charlotte</ul></il>
+<ul><il>010 Amelia</ul></il>
+<ul><il>011 Harper</ul></il>
+<ul><il>012 Evelyn</ul></il>
+<ul><il>013 Abigail</ul></il>
+<ul><il>014 Emily</ul></il>
+<ul><il>015 Elizabeth</ul></il>
+<ul><il>016 James</ul></il>
+<ul><il>017 Benjamin</ul></il>
+<ul><il>018 Samuel</ul></il>
+<ul><il>019 Henry</ul></il>
+<ul><il>020 Alexander</ul></il>
+
+<button id="generateJsonButton">Generate JSON</button>
+
+<script>
+    document.getElementById("generateJsonButton").addEventListener("click", function() {
+    // Send an AJAX request to the server
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "/umbraco/api/BranchTypeController/toJson", true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE && xhr.status === 200) {
+                alert("JSON file generated successfully!");
+            }
+        };
+        xhr.send();
+    });
+</script>
